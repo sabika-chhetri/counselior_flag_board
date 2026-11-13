@@ -1,13 +1,7 @@
-<<<<<<< HEAD
 # SA Counsellor Flag Board (prototype)
 
 Synthetic data only. No names, no real students.
 
-## Run it
-```
-npm start        # then open http://localhost:3000   (needs Node 18+, no installs)
-npm test         # checks the flag rules against the dataset
-```
 
 ## What works
 - **AC-01** Loads `data/SA_sample_dataset_SYNTHETIC.csv`, lists all 72 students by ID, school, class (file picker appears if the CSV can't be fetched).
@@ -32,14 +26,18 @@ npm test         # checks the flag rules against the dataset
 Also: if Q2, Q3 or Q6 is missing and nothing else flagged, the student goes to Review ("answers missing") rather than a false None.
 Other gaps (not built): free-text comments are ignored (S-023: "Sometimes I don't want to go home" is None); Q7 "wants counsellor" alone only gives Review, though the child asked for help.
 
+## How I made this
+1. **Read the brief** and picked the flag board plus follow-up status as the first piece (see the idea sheet).
+2. **Wrote the rules first** as one plain file, `public/rules.js`: CSV reading, data cleaning, the flag rules in order, and the supervisor counts with the "<5" rule. Keeping it separate from the screen let me test it on its own.
+3. **Tested the rules** with `npm test` on the real dataset (e.g. S-005 is Urgent, S-045 "often" is cleaned, School D class XI shows "<5", no IDs in supervisor data).
+4. **Built the screens** in plain HTML, CSS and JavaScript, with no framework and no install, so it runs with one command. Statuses are saved in the browser's localStorage.
+5. **Added my extra rule** for "Prefer not to say", then checked its effect on the 8 affected students.
+6. **Improved the look**: large clickable flag-count cards, colour-coded rows, a chart and a mobile layout.
+
 ## AI tools used
-Claude Code (Claude Sonnet 5.5) to write the code and docs. I reviewed and ran the tests myself.
-- **Prompt that worked:** giving the exact rules and asking for the logic as a separate pure file plus tests; this caught a wrong expectation (S-027) immediately.
-- **Prompt that failed:** [REPLACE with your own honest example, e.g. a first prompt that was too vague and gave a generic dashboard.]
+- **Claude Code (Claude Sonnet 5.5, Anthropic)**, the only AI tool I used. It wrote the code, tests and documents from my instructions.
+- I read the code, ran the tests and checked the numbers myself, and I can explain and change any part of it.
+- Only the synthetic dataset was used. No real student data was put into any tool.
 
 ## Build next
 Shared database + login per counsellor; complementary suppression; comment keyword alerts; Dzongkha labels; deploy; audit log of who changed a status.
-=======
-# counselior_flag_board
-Created flag board of students
->>>>>>> 98b165e0811d44c4a66946c005991f4ac5642cdc
