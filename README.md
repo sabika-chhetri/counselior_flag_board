@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SA Counsellor Flag Board (prototype)
 
 Synthetic data only. No names, no real students.
@@ -38,3 +39,7 @@ Claude Code (Claude Sonnet 5.5) to write the code and docs. I reviewed and ran t
 
 ## Build next
 Shared database + login per counsellor; complementary suppression; comment keyword alerts; Dzongkha labels; deploy; audit log of who changed a status.
+=======
+# counselior_flag_board
+Created flag board of students
+>>>>>>> 98b165e0811d44c4a66946c005991f4ac5642cdc
