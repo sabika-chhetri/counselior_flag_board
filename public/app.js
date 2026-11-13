@@ -63,9 +63,9 @@ function renderTable() {
       `<select data-id="${esc(s.id)}" aria-label="Follow-up status for ${esc(s.id)}">` +
       STATUSES.map((o) => `<option${o === st ? " selected" : ""}>${o}</option>`).join("") + "</select>";
     return `<tr class="r-${s.level}${s.level !== "None" && st === "Closed" ? " closed" : ""}">
-      <td>${esc(s.id)}</td><td>${esc(s.school)}</td><td>${esc(s.cls)}</td>
-      <td><span class="badge ${s.level}">${s.level === "Urgent" ? "⚠ URGENT" : s.level}</span></td>
-      <td>${esc(s.reasons.join(" · "))}</td><td>${follow}</td></tr>`;
+      <td data-label="Student">${esc(s.id)}</td><td data-label="School">${esc(s.school)}</td><td data-label="Class">${esc(s.cls)}</td>
+      <td data-label="Flag"><span class="badge ${s.level}">${s.level === "Urgent" ? "⚠ URGENT" : s.level}</span></td>
+      <td data-label="Reason">${esc(s.reasons.join(" · "))}</td><td data-label="Follow-up">${follow}</td></tr>`;
   }).join("") || '<tr><td colspan="6" class="na">No students match.</td></tr>';
 
   document.querySelectorAll("td select").forEach((el) => el.onchange = () => {

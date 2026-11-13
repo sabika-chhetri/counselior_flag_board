@@ -44,4 +44,28 @@ td select{padding:6px;border-radius:6px;border:1px solid var(--line);background:
 #chart{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;margin-bottom:12px}
 .legend{display:flex;gap:12px;margin-bottom:8px;font-size:.8rem}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px}
-@media(max-width:640px){th,td{padding:7px 6px;font-size:.85rem}.barrow .lbl{width:90px}}
+.tab{flex:1}
+nav{display:flex;gap:8px}
+@media(max-width:640px){
+  main{padding:12px}
+  header{padding:10px 12px}
+  h1{font-size:1rem}h1 small{display:block;margin:2px 0 0}
+  .tab{padding:10px 8px}
+  .filters{display:grid;grid-template-columns:1fr 1fr}
+  .filters input[type=search]{grid-column:1/-1}
+  .filters select{width:100%}
+  .chk{grid-column:1/-1}
+  .barrow{flex-wrap:wrap}.barrow .lbl{width:100%}
+  /* student table becomes one card per student */
+  #tbl thead{display:none}
+  #tbl,#tbl tbody,#tbl tr,#tbl td{display:block;width:100%}
+  #tbl{border:0}
+  .tablewrap:has(#tbl){background:transparent;border:0;overflow:visible}
+  #tbl tr{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:10px;padding:6px 0;overflow:hidden}
+  #tbl td{display:flex;justify-content:space-between;gap:12px;border:0;padding:6px 12px;text-align:right}
+  #tbl td::before{content:attr(data-label);font-size:.72rem;text-transform:uppercase;color:var(--none);letter-spacing:.03em;text-align:left;flex:none;padding-top:3px}
+  #tbl td:first-child{font-weight:700;font-size:1rem;border-left:0!important}
+  #tbl tr.r-Urgent{border-left:6px solid var(--urgent)}
+  #tbl td select{min-width:140px;padding:9px}
+  #agg th,#agg td{padding:7px 6px;font-size:.8rem}
+}
